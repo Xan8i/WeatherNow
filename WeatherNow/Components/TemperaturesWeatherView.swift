@@ -11,19 +11,29 @@ struct TemperaturesWeatherView: View {
     let imageName: String
     let temperature: Double
     let apparentTemperature: Double
+    let minTemperature: Double
+    let maxTemperature: Double
     let units: String
     
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(alignment: .center, spacing: 10) {
+            
+            HStack(alignment: .center) {
+                Text(temperature.roundDouble())
+                    .font(.system(size: 100))
+                Text(units)
+                    .font(.system(size: 50))
+            }
+            .fontWeight(.bold)
+            
             HStack {
-                WeatherImageView(imageName: imageName, font: .system(size: 60))
+                WeatherImageView(imageName: imageName, font: .system(size: 50))
                 
                 Spacer()
-                    .frame(width: 50)
-                
-                Text(temperature.roundDouble() + units)
-                    .font(.system(size: 80))
-                    .fontWeight(.bold)
+                    .frame(width: 20)
+                Text(minTemperature.roundDouble() + "° / " + maxTemperature.roundDouble() + "°")
+                    .font(.largeTitle)
+                    
             }
             
             HStack {
@@ -32,15 +42,21 @@ struct TemperaturesWeatherView: View {
                 VStack {
                     Text("Feels like")
                         .font(.headline)
-                    Text(apparentTemperature.roundDouble() + units)
-                        .font(.largeTitle.bold())
+                    HStack {
+                        Text(apparentTemperature.roundDouble())
+                            .font(.largeTitle)
+                        Text(units)
+                            .font(.title2)
+                    }
                 }
             }
             .padding()
+            .fontWeight(.bold)
         }
+        .padding()
     }
 }
 
 #Preview {
-    TemperaturesWeatherView(imageName: "sun.max", temperature: 20.0, apparentTemperature: 18.0, units: "°C")
+    TemperaturesWeatherView(imageName: "sun.max", temperature: 20.0, apparentTemperature: 18.0, minTemperature: 12.0, maxTemperature: 25.0, units: "°C")
 }

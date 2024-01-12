@@ -23,7 +23,7 @@ struct WeatherView: View {
         NavigationStack {
             VStack(spacing: .zero) {
                 HStack {
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .center) {
                         Text(cityName)
                             .font(.title.bold())
                         Text("Today, \(weather.date.formatted(.dateTime.month().day()))")
@@ -31,26 +31,22 @@ struct WeatherView: View {
                     }
                     .padding()
                     
-                    Spacer()
-                    
-                    NavigationLink {
-                        SevenDaysWeatherView(weather: weather, allRowData: Transformer.transformToRowData(from: weather))
-                    } label: {
-                       Text("See 7 day forecast >")
-                            .padding()
-                            .font(.headline)
-                            .foregroundColor(.white)
-                    }
+//                    Spacer()
                 }
                 
+                Spacer()
                 
                 TemperaturesWeatherView(imageName: weather.weatherImageName,
                                         temperature: weather.current.temperature2M,
                                         apparentTemperature: weather.current.apparentTemperature,
+                                        minTemperature: weather.daily.temperature2MMin[0],
+                                        maxTemperature: weather.daily.temperature2MMax[0],
                                         units: weather.currentUnits.apparentTemperature)
                 
                 Spacer()
-                BackroundCityView()
+                
+//                BackroundCityView()
+                
                 ConditionsView(maxTemperature: weather.daily.temperature2MMax[0],
                                maxTemperatureUnits: weather.dailyUnits.temperature2MMax,
                                minTemperature: weather.daily.temperature2MMin[0],
@@ -59,6 +55,17 @@ struct WeatherView: View {
                                windSpeedUnits: weather.currentUnits.windSpeed10M,
                                humidity: weather.current.relativeHumidity2M,
                                humidityUnits: weather.currentUnits.relativeHumidity2M)
+                
+                Spacer()
+                
+                NavigationLink {
+                    SevenDaysWeatherView(weather: weather, allRowData: Transformer.transformToRowData(from: weather))
+                } label: {
+                   Text("7 day forecast >")
+                        .padding()
+                        .font(.title2.bold())
+                        .foregroundColor(.white)
+                }
                 
             }
             .edgesIgnoringSafeArea(.bottom)

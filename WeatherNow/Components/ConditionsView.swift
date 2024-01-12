@@ -22,16 +22,16 @@ struct ConditionsView: View {
             Text("Additional conditions:")
                 .bold().padding(.bottom)
             
-            HStack {
-                WeatherRow(logo: "thermometer.high",
-                           name: "Max",
-                           value: maxTemperature.roundDouble() + maxTemperatureUnits)
-                Spacer()
-                
-                WeatherRow(logo: "thermometer.low",
-                           name: "Min",
-                           value: minTemperature.roundDouble() + minTemperatureUnits)
-            }
+//            HStack {
+//                WeatherRow(logo: "thermometer.high",
+//                           name: "Max",
+//                           value: maxTemperature.roundDouble() + maxTemperatureUnits)
+//                Spacer()
+//                
+//                WeatherRow(logo: "thermometer.low",
+//                           name: "Min",
+//                           value: minTemperature.roundDouble() + minTemperatureUnits)
+//            }
             
             HStack {
                 WeatherRow(logo: "wind",
@@ -50,7 +50,8 @@ struct ConditionsView: View {
         .padding(.bottom, 20)
         .foregroundColor(Color(hue: 0.706, saturation: 0.936, brightness: 0.337))
         .background(.white)
-        .cornerRadius(20, corners: [.topLeft, .topRight])
+//        .cornerRadius(20, corners: [.topLeft, .topRight])
+        .cornerRadius(20)
 
     }
 }
