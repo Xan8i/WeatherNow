@@ -16,6 +16,7 @@ struct ConditionsView: View {
     let windSpeedUnits: String
     let humidity: Int
     let humidityUnits: String
+    let apparentTemperature: Double
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -32,6 +33,7 @@ struct ConditionsView: View {
 //                           name: "Min",
 //                           value: minTemperature.roundDouble() + minTemperatureUnits)
 //            }
+            
             
             HStack {
                 WeatherRow(logo: "wind",
@@ -57,5 +59,5 @@ struct ConditionsView: View {
 }
 
 #Preview {
-    ConditionsView(maxTemperature: 20.0, maxTemperatureUnits: "°C", minTemperature: 10.0, minTemperatureUnits: "°C", windSpeed: 3.0, windSpeedUnits: "km/h", humidity: 50, humidityUnits: "%")
+    ConditionsView(maxTemperature: 20.0, maxTemperatureUnits: "°C", minTemperature: 10.0, minTemperatureUnits: "°C", windSpeed: 3.0, windSpeedUnits: "km/h", humidity: 50, humidityUnits: "%", apparentTemperature: 18.0)
 }

@@ -20,6 +20,7 @@ struct DailyWeatherRowView: View {
                 Text(rowData.time.formatted(.dateTime.month().day()))
                     .font(.title3)
             }
+            .foregroundColor(.white)
             
             Spacer()
             

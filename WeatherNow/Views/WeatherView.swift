@@ -54,7 +54,8 @@ struct WeatherView: View {
                                windSpeed: weather.current.windSpeed10M,
                                windSpeedUnits: weather.currentUnits.windSpeed10M,
                                humidity: weather.current.relativeHumidity2M,
-                               humidityUnits: weather.currentUnits.relativeHumidity2M)
+                               humidityUnits: weather.currentUnits.relativeHumidity2M,
+                               apparentTemperature: weather.current.apparentTemperature)
                 
                 Spacer()
                 
@@ -66,6 +67,8 @@ struct WeatherView: View {
                         .font(.title2.bold())
                         .foregroundColor(.white)
                 }
+                
+                Spacer()
                 
             }
             .edgesIgnoringSafeArea(.bottom)

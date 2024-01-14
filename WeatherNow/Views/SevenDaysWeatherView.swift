@@ -18,7 +18,11 @@ struct SevenDaysWeatherView: View {
             
             VStack(alignment: .leading) {
                 ForEach(allRowData, id: \.time) { rowData in
-                    DailyWeatherRowView(rowData: rowData, image: rowData.weatherImageName)
+                    NavigationLink {
+                        WeekdayWeatherView(weather: weather, rowData: rowData)
+                    } label: {
+                        DailyWeatherRowView(rowData: rowData, image: rowData.weatherImageName)
+                    }
                 }
             }
         }
