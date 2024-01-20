@@ -27,6 +27,7 @@
 		C39E71D72B1778E400E7D3B4 /* weatherData.json in Resources */ = {isa = PBXBuildFile; fileRef = C39E71D62B1778E400E7D3B4 /* weatherData.json */; };
 		C39E71D92B177A1200E7D3B4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39E71D82B177A1200E7D3B4 /* Extensions.swift */; };
 		C3D0226D2B547E760077297D /* WeekdayWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D0226C2B547E760077297D /* WeekdayWeatherView.swift */; };
+		C3D022992B5C2B420077297D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D022982B5C2B420077297D /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		C39E71D62B1778E400E7D3B4 /* weatherData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weatherData.json; sourceTree = "<group>"; };
 		C39E71D82B177A1200E7D3B4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C3D0226C2B547E760077297D /* WeekdayWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayWeatherView.swift; sourceTree = "<group>"; };
+		C3D022982B5C2B420077297D /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				C39453742B276AB600EA182F /* DailyWeatherRowView.swift */,
 				C39453722B276A4500EA182F /* SevenDaysWeatherView.swift */,
 				C3D0226C2B547E760077297D /* WeekdayWeatherView.swift */,
+				C3D022982B5C2B420077297D /* Router.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				C39E71D12B1608AC00E7D3B4 /* WeatherManager.swift in Sources */,
 				C39453732B276A4500EA182F /* SevenDaysWeatherView.swift in Sources */,
 				C39E71D92B177A1200E7D3B4 /* Extensions.swift in Sources */,
+				C3D022992B5C2B420077297D /* Router.swift in Sources */,
 				C32D6C4E2B2A1647005E4940 /* TemperaturesWeatherView.swift in Sources */,
 				C3D0226D2B547E760077297D /* WeekdayWeatherView.swift in Sources */,
 				C39E71BD2B15F6C800E7D3B4 /* ContentView.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ResponseBody: Codable {
+struct ResponseBody: Codable, Hashable {
     let latitude: Double
     let longitude: Double
     let generationtimeMs: Double
@@ -24,7 +24,7 @@ struct ResponseBody: Codable {
     
     let daily: Daily
 
-    struct CurrentUnits: Codable {
+    struct CurrentUnits: Codable, Hashable {
         let time: String
         let interval: String
         let temperature2M: String
@@ -38,7 +38,7 @@ struct ResponseBody: Codable {
         let windSpeed10M: String
     }
     
-    struct Current: Codable {
+    struct Current: Codable, Hashable {
         let time: String
         let interval: Int
         let temperature2M: Double
@@ -52,7 +52,7 @@ struct ResponseBody: Codable {
         let windSpeed10M: Double
     }
     
-    struct DailyUnits: Codable {
+    struct DailyUnits: Codable, Hashable {
         let time: String
         let temperature2MMax: String
         let temperature2MMin: String
@@ -64,7 +64,7 @@ struct ResponseBody: Codable {
         let windSpeed10MMax: String
     }
     
-    struct Daily: Codable {
+    struct Daily: Codable, Hashable {
         let time: [String]
         let temperature2MMax: [Double]
         let temperature2MMin: [Double]
@@ -108,7 +108,7 @@ struct ResponseBody: Codable {
 }
 
 
-struct RowData {
+struct RowData: Hashable {
     var time: Date
     var temperature2MMax: Double
     var temperature2MMin: Double
