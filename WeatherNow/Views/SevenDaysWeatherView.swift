@@ -14,7 +14,7 @@ struct SevenDaysWeatherView: View {
     @EnvironmentObject var router: Router
     
     var body: some View {
-        VStack(alignment: .leading) {
+        ScrollView {
             ForEach(allRowData, id: \.time) { rowData in
                 Button {
                     router.navigateTo(destination: .weekdayWeather(weather: weather, rowData: rowData))

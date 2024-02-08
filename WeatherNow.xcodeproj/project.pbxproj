@@ -68,10 +68,11 @@
 		C394536E2B17D60000EA182F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				C32D6C492B2A1193005E4940 /* WeatherImageView.swift */,
 				C32D6C4D2B2A1647005E4940 /* TemperaturesWeatherView.swift */,
+				C39453742B276AB600EA182F /* DailyWeatherRowView.swift */,
 				C394536F2B17D61C00EA182F /* WeatherRow.swift */,
 				C32D6C4F2B2A1AED005E4940 /* ConditionsView.swift */,
+				C32D6C492B2A1193005E4940 /* WeatherImageView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -123,6 +124,7 @@
 				C39E71C92B15F7E700E7D3B4 /* LocationManager.swift */,
 				C39E71D02B1608AC00E7D3B4 /* WeatherManager.swift */,
 				C394536C2B17979100EA182F /* WeatherModel.swift */,
+				C3D022982B5C2B420077297D /* Router.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -131,12 +133,10 @@
 			isa = PBXGroup;
 			children = (
 				C39E71BC2B15F6C800E7D3B4 /* ContentView.swift */,
-				C39E71CE2B1607F100E7D3B4 /* LoadingView.swift */,
 				C39E71D22B17766200E7D3B4 /* WeatherView.swift */,
-				C39453742B276AB600EA182F /* DailyWeatherRowView.swift */,
 				C39453722B276A4500EA182F /* SevenDaysWeatherView.swift */,
 				C3D0226C2B547E760077297D /* WeekdayWeatherView.swift */,
-				C3D022982B5C2B420077297D /* Router.swift */,
+				C39E71CE2B1607F100E7D3B4 /* LoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

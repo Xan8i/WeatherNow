@@ -13,12 +13,12 @@ struct ContentView: View {
     var weatherManager = WeatherManager()
     @State var weather: ResponseBody?
     @State var isCelsius = true
-    
-    @ObservedObject var router = Router()
+    @State var isRefreshing = false
+    @StateObject var router = Router()
     
     var body: some View {
         NavigationStack(path: $router.navPath) {
-            Group {
+            ScrollView {
                 if let location = locationManager.location {
                     if let weather = weather {
                         WeatherView(weather: weather, locationManager: locationManager)
@@ -49,7 +49,19 @@ struct ContentView: View {
                     LoadingView()
                 }
             }
-
+            .overlay(alignment: .top) {
+                if isRefreshing {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                }
+            }
+            .refreshable {
+                if let location = locationManager.location {
+                    isRefreshing = true
+                    await getWeather(location: location)
+                    isRefreshing = false
+                }
+            }
         }
         .accentColor(.white)
         .preferredColorScheme(.dark)
@@ -57,12 +69,15 @@ struct ContentView: View {
     }
     
     func getWeather(location: CLLocationCoordinate2D) async {
+        try? await Task.sleep(nanoseconds: 1_000_000_000)
         do {
             weather = try await weatherManager.getCurrentWeather(latitude: location.latitude, longitude: location.longitude, units: isCelsius ? .celsius : .fahrenheit)
         } catch {
             print("Error getting weather: \(error)")
         }
     }
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

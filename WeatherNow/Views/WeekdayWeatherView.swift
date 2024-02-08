@@ -12,21 +12,20 @@ struct WeekdayWeatherView: View {
     var rowData: RowData
     
     var body: some View {
-        VStack(spacing: 20) {
+        //VStack(spacing: 20) {
+        ScrollView {
 
             Text(rowData.time.formatted(Date.FormatStyle().weekday(.wide).month(.wide).day()))
+                .padding()
                 .font(.title.bold())
             
             Text("Sunrise: " + rowData.sunrise.formatted(date: .omitted, time: .shortened) + "  -  Sunset: " + rowData.sunset.formatted(date: .omitted, time: .shortened))
                 .font(.headline)
-            
-            Spacer()
-            
-            
+                .padding(.bottom)
             
             WeatherImageView(imageName: rowData.weatherImageName, font: .custom("", size: 80))
-            
-            Spacer()
+                .padding()
+
             
             HStack {
                 Text("Max: ")
@@ -42,10 +41,8 @@ struct WeekdayWeatherView: View {
                 Text(rowData.temperature2MMin.roundDouble() + "°")
                     .font(.title.bold())
             }
+            .padding(.bottom, 30)
             
-            
-            
-            Spacer()
             
             
             VStack(alignment: .leading) {
@@ -57,7 +54,7 @@ struct WeekdayWeatherView: View {
             }
             .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color(white: 0.9, opacity: 0.25))
+            .background(.ultraThinMaterial.opacity(0.5))
             .cornerRadius(20)
             
             

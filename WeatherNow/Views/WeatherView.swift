@@ -21,8 +21,7 @@ struct WeatherView: View {
     }
 
     var body: some View {
-
-        VStack(spacing: .zero) {
+        VStack {
             HStack {
                 VStack(alignment: .center) {
                     Text(cityName)
@@ -33,17 +32,13 @@ struct WeatherView: View {
                 .padding()
             }
             
-            Spacer()
-            
             TemperaturesWeatherView(imageName: weather.weatherImageName,
                                     temperature: weather.current.temperature2M,
                                     apparentTemperature: weather.current.apparentTemperature,
                                     minTemperature: weather.daily.temperature2MMin[0],
                                     maxTemperature: weather.daily.temperature2MMax[0],
                                     units: weather.currentUnits.apparentTemperature)
-            
-            Spacer()
-            
+
             
             ConditionsView(maxTemperature: weather.daily.temperature2MMax[0],
                            maxTemperatureUnits: weather.dailyUnits.temperature2MMax,
@@ -54,22 +49,20 @@ struct WeatherView: View {
                            humidity: weather.current.relativeHumidity2M,
                            humidityUnits: weather.currentUnits.relativeHumidity2M,
                            apparentTemperature: weather.current.apparentTemperature)
-            
-            Spacer()
+        
             
             Button {
                 router.navigateTo(destination: .sevenDaysWeather(weather: weather, allRowData: Transformer.transformToRowData(from: weather)))
             } label: {
                 Text("7 day forecast")
                     .padding()
-                    .frame(width: 300, height: 50)
-                    .background(Color(white: 0.8, opacity: 0.3))
+                    .frame(width: 250, height: 50)
+                    .background(.ultraThinMaterial.opacity(0.5))
                     .font(.title3.bold())
                     .foregroundColor(.white)
                     .clipShape(RoundedRectangle(cornerRadius: 25.0))
             }
-            
-            Spacer()
+            .padding(.top, 30)
         }
         .background(Image(weather.weatherBackround.rawValue))
         .preferredColorScheme(.dark)

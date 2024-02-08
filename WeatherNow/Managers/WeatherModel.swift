@@ -126,7 +126,7 @@ struct ResponseBody: Codable, Hashable {
             return .snowy
         }
         
-        if current.cloudCover >= 30 {
+        if current.cloudCover >= 40 {
             return .cloudy
         }
         
