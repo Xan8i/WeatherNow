@@ -105,6 +105,33 @@ struct ResponseBody: Codable, Hashable {
         
         return "sun.max"
     }
+    
+    enum WeatherBackround: String {
+        case sunny = "sunny"
+        case cloudy = "cloudy"
+        case rainy = "rainy"
+        case snowy = "snowy"
+    }
+    
+    var weatherBackround: WeatherBackround {
+        if current.rain > 0 {
+            return .rainy
+        }
+        
+        if current.showers > 0 {
+            return .rainy
+        }
+        
+        if current.snowfall > 0 {
+            return .snowy
+        }
+        
+        if current.cloudCover >= 30 {
+            return .cloudy
+        }
+        
+        return .sunny
+    }
 }
 
 
@@ -179,3 +206,5 @@ enum Transformer {
         return allRowData
     }
 }
+
+

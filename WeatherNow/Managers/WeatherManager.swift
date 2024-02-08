@@ -9,9 +9,9 @@ import Foundation
 import CoreLocation
 
 class WeatherManager {
-    func getCurrentWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees) async throws -> ResponseBody {
+    func getCurrentWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees, units: Units) async throws -> ResponseBody {
         
-        guard let url = URL(string: "https://api.open-meteo.com/v1/forecast?latitude=\(latitude)&longitude=\(longitude)&current=temperature_2m,rain,showers,snowfall,cloud_cover,relative_humidity_2m,apparent_temperature,is_day,wind_speed_10m&hourly=&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,rain_sum,showers_sum,snowfall_sum,wind_speed_10m_max") else {
+        guard let url = URL(string: "https://api.open-meteo.com/v1/forecast?latitude=\(latitude)&longitude=\(longitude)&current=temperature_2m,rain,showers,snowfall,cloud_cover,relative_humidity_2m,apparent_temperature,is_day,wind_speed_10m&hourly=&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,rain_sum,showers_sum,snowfall_sum,wind_speed_10m_max&temperature_unit=\(units.rawValue)") else {
             fatalError("Missing URL")
         }
         
@@ -28,5 +28,11 @@ class WeatherManager {
 
     }
 }
+
+enum Units: String {
+    case celsius = "celsius"
+    case fahrenheit = "fahrenheit"
+}
+
 
 

@@ -43,10 +43,10 @@ struct TemperaturesWeatherView: View {
                     Text("Feels like")
                         .font(.headline)
                     HStack {
-                        Text(apparentTemperature.roundDouble())
+                        Text(apparentTemperature.roundDouble() + "°")
                             .font(.largeTitle)
-                        Text(units)
-                            .font(.title2)
+//                        Text(units)
+//                            .font(.title2)
                     }
                 }
             }

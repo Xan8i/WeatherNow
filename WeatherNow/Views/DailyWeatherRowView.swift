@@ -14,35 +14,22 @@ struct DailyWeatherRowView: View {
     
     var body: some View {
         HStack(spacing: 30) {
+            WeatherImageView(imageName: image, font: .title)
+            
             VStack(alignment: .listRowSeparatorLeading)  {
                 Text(rowData.time.formatted(Date.FormatStyle().weekday(.wide)))
                     .font(.title2.bold())
                 Text(rowData.time.formatted(.dateTime.month().day()))
                     .font(.title3)
             }
-            .foregroundColor(.white)
             
             Spacer()
             
-            WeatherImageView(imageName: image, font: .title)
-            
-            VStack {
-                HStack(spacing: 2) {
-                    Text(rowData.temperature2MMax.roundDouble())
-                        .font(.title2.bold())
-                    Text("°C")
-                }
-                .foregroundColor(.red)
-                
-                HStack(spacing: 2) {
-                    Text(rowData.temperature2MMin.roundDouble())
-                        .font(.title2.bold())
-                    Text("°C")
-                }
-                .foregroundColor(.blue)
-            }
+            Text(rowData.temperature2MMax.roundDouble() + "°/ " + rowData.temperature2MMin.roundDouble() + "°")
+                .font(.title2.bold())
         }
         .padding()
+        .foregroundStyle(.white)
         .preferredColorScheme(.dark)
     }
 }

@@ -11,6 +11,7 @@ struct WeatherView: View {
     var weather: ResponseBody
     var locationManager: LocationManager
     
+    @EnvironmentObject var router: Router
     @State var cityName = ""
     
     func getCityName() {
@@ -18,10 +19,9 @@ struct WeatherView: View {
             cityName = placemark?.locality ?? "City name not found"
         }
     }
-    
-    @EnvironmentObject var router: Router
-    
+
     var body: some View {
+
         VStack(spacing: .zero) {
             HStack {
                 VStack(alignment: .center) {
@@ -31,8 +31,6 @@ struct WeatherView: View {
                         .fontWeight(.light)
                 }
                 .padding()
-                
-//                    Spacer()
             }
             
             Spacer()
@@ -46,7 +44,6 @@ struct WeatherView: View {
             
             Spacer()
             
-//                BackroundCityView()
             
             ConditionsView(maxTemperature: weather.daily.temperature2MMax[0],
                            maxTemperatureUnits: weather.dailyUnits.temperature2MMax,
@@ -63,29 +60,20 @@ struct WeatherView: View {
             Button {
                 router.navigateTo(destination: .sevenDaysWeather(weather: weather, allRowData: Transformer.transformToRowData(from: weather)))
             } label: {
-                Text("7 day forecast >")
+                Text("7 day forecast")
                     .padding()
-                    .font(.title2.bold())
+                    .frame(width: 300, height: 50)
+                    .background(Color(white: 0.8, opacity: 0.3))
+                    .font(.title3.bold())
                     .foregroundColor(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 25.0))
             }
             
-//            NavigationLink {
-//                SevenDaysWeatherView(weather: weather, allRowData: Transformer.transformToRowData(from: weather))
-//            } label: {
-//               Text("7 day forecast >")
-//                    .padding()
-//                    .font(.title2.bold())
-//                    .foregroundColor(.white)
-//            }
-            
             Spacer()
-            
         }
-        .edgesIgnoringSafeArea(.bottom)
-        .background(weather.isItDayTime ? Color(hue: 0.570, saturation: 0.745, brightness: 0.959) : Color(hue: 0.706, saturation: 0.936, brightness: 0.337))
+        .background(Image(weather.weatherBackround.rawValue))
         .preferredColorScheme(.dark)
         .onAppear(perform: getCityName)
-    
     }
 }
 

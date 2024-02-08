@@ -12,6 +12,7 @@ struct ContentView: View {
     @StateObject var locationManager = LocationManager()
     var weatherManager = WeatherManager()
     @State var weather: ResponseBody?
+    @State var isCelsius = true
     
     @ObservedObject var router = Router()
     
@@ -29,7 +30,15 @@ struct ContentView: View {
                                     WeekdayWeatherView(weather: weather, rowData: rowData)
                                 }
                             }
-                            
+                            .toolbar {
+                                Button("Change to " + (isCelsius ? "°F" : "°C")) {
+                                    isCelsius.toggle()
+                                    Task {
+                                        await getWeather(location: location)
+                                    }
+                                }
+                                .bold()
+                            }
                     } else {
                         LoadingView()
                             .task {
@@ -40,14 +49,16 @@ struct ContentView: View {
                     LoadingView()
                 }
             }
+
         }
+        .accentColor(.white)
         .preferredColorScheme(.dark)
         .environmentObject(router)
     }
     
     func getWeather(location: CLLocationCoordinate2D) async {
         do {
-            weather = try await weatherManager.getCurrentWeather(latitude: location.latitude, longitude: location.longitude)
+            weather = try await weatherManager.getCurrentWeather(latitude: location.latitude, longitude: location.longitude, units: isCelsius ? .celsius : .fahrenheit)
         } catch {
             print("Error getting weather: \(error)")
         }

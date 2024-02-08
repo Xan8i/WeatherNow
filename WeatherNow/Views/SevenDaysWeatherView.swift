@@ -14,29 +14,19 @@ struct SevenDaysWeatherView: View {
     @EnvironmentObject var router: Router
     
     var body: some View {
-        ZStack {
-            Color(hue: 0.706, saturation: 0.936, brightness: 0.337)
-                .ignoresSafeArea()
-            
-            VStack(alignment: .leading) {
-                ForEach(allRowData, id: \.time) { rowData in
-                    Button {
-                        router.navigateTo(destination: .weekdayWeather(weather: weather, rowData: rowData))
-                    } label: {
-                        DailyWeatherRowView(rowData: rowData, image: rowData.weatherImageName)
-                    }
-                    
-//                    NavigationLink {
-//                        WeekdayWeatherView(weather: weather, rowData: rowData)
-//                    } label: {
-//                        DailyWeatherRowView(rowData: rowData, image: rowData.weatherImageName)
-//                    }
+        VStack(alignment: .leading) {
+            ForEach(allRowData, id: \.time) { rowData in
+                Button {
+                    router.navigateTo(destination: .weekdayWeather(weather: weather, rowData: rowData))
+                } label: {
+                    DailyWeatherRowView(rowData: rowData, image: rowData.weatherImageName)
                 }
             }
         }
         .preferredColorScheme(.dark)
         .navigationTitle("7 Day Forecast ")
         .navigationBarTitleDisplayMode(.large)
+        .background(Image(weather.weatherBackround.rawValue))
     }
 }
 

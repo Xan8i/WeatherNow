@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C32D6C4A2B2A1193005E4940 /* WeatherImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32D6C492B2A1193005E4940 /* WeatherImageView.swift */; };
-		C32D6C4C2B2A1235005E4940 /* BackroundCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32D6C4B2B2A1235005E4940 /* BackroundCityView.swift */; };
 		C32D6C4E2B2A1647005E4940 /* TemperaturesWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32D6C4D2B2A1647005E4940 /* TemperaturesWeatherView.swift */; };
 		C32D6C502B2A1AED005E4940 /* ConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32D6C4F2B2A1AED005E4940 /* ConditionsView.swift */; };
 		C394536D2B17979100EA182F /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C394536C2B17979100EA182F /* WeatherModel.swift */; };
@@ -32,7 +31,6 @@
 
 /* Begin PBXFileReference section */
 		C32D6C492B2A1193005E4940 /* WeatherImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherImageView.swift; sourceTree = "<group>"; };
-		C32D6C4B2B2A1235005E4940 /* BackroundCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackroundCityView.swift; sourceTree = "<group>"; };
 		C32D6C4D2B2A1647005E4940 /* TemperaturesWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperaturesWeatherView.swift; sourceTree = "<group>"; };
 		C32D6C4F2B2A1AED005E4940 /* ConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionsView.swift; sourceTree = "<group>"; };
 		C394536C2B17979100EA182F /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
@@ -72,7 +70,6 @@
 			children = (
 				C32D6C492B2A1193005E4940 /* WeatherImageView.swift */,
 				C32D6C4D2B2A1647005E4940 /* TemperaturesWeatherView.swift */,
-				C32D6C4B2B2A1235005E4940 /* BackroundCityView.swift */,
 				C394536F2B17D61C00EA182F /* WeatherRow.swift */,
 				C32D6C4F2B2A1AED005E4940 /* ConditionsView.swift */,
 			);
@@ -226,7 +223,6 @@
 				C32D6C4A2B2A1193005E4940 /* WeatherImageView.swift in Sources */,
 				C39E71BB2B15F6C800E7D3B4 /* WeatherNowApp.swift in Sources */,
 				C394536D2B17979100EA182F /* WeatherModel.swift in Sources */,
-				C32D6C4C2B2A1235005E4940 /* BackroundCityView.swift in Sources */,
 				C39E71CA2B15F7E700E7D3B4 /* LocationManager.swift in Sources */,
 				C39E71CF2B1607F100E7D3B4 /* LoadingView.swift in Sources */,
 				C39E71D52B1776C200E7D3B4 /* ModelData.swift in Sources */,
