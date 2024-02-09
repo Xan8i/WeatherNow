@@ -83,7 +83,7 @@ struct ResponseBody: Codable, Hashable {
     }
     
     var date: Date {
-        DateFormater.convertToDate(current.time)
+        DateFormatter.convertToDate(current.time)
     }
     
     var weatherImageName: String {
@@ -105,13 +105,7 @@ struct ResponseBody: Codable, Hashable {
         
         return "sun.max"
     }
-    
-    enum WeatherBackround: String {
-        case sunny = "sunny"
-        case cloudy = "cloudy"
-        case rainy = "rainy"
-        case snowy = "snowy"
-    }
+
     
     var weatherBackround: WeatherBackround {
         if current.rain > 0 {
@@ -161,27 +155,24 @@ struct RowData: Hashable {
         
         return "sun.max"
     }
+    
+    var weatherBackround: WeatherBackround {
+        if rainSum > 0 {
+            return .rainy
+        }
+        
+        if showersSum > 0 {
+            return .rainy
+        }
+        
+        if snowfallSum > 0 {
+            return .snowy
+        }
+        
+        return .sunny
+    }
 }
 
-
-enum DateFormater {
-    static func convertToDate(_ date: String) -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
-        return dateFormatter.date(from: date) ?? Date()
-    }
-    
-    static func convertToShortDate(_ date: String) -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.date(from: date) ?? Date()
-    }
-    
-    static func getWeekDay(_ date: Date) -> String {
-        let f = DateFormatter()
-        return f.weekdaySymbols[Calendar.current.component(.weekday, from: date) - 1]
-    }
-}
 
 enum Transformer {
     static func transformToRowData(from weather: ResponseBody) -> [RowData] {
@@ -190,11 +181,11 @@ enum Transformer {
 
         for day in 0..<7 {
             let rowData = RowData(
-                time: DateFormater.convertToShortDate(weather.daily.time[day]),
+                time: DateFormatter.convertToShortDate(weather.daily.time[day]),
                 temperature2MMax: weather.daily.temperature2MMax[day],
                 temperature2MMin: weather.daily.temperature2MMin[day],
-                sunrise: DateFormater.convertToDate(weather.daily.sunrise[day]),
-                sunset: DateFormater.convertToDate(weather.daily.sunset[day]),
+                sunrise: DateFormatter.convertToDate(weather.daily.sunrise[day]),
+                sunset: DateFormatter.convertToDate(weather.daily.sunset[day]),
                 rainSum: weather.daily.rainSum[day],
                 showersSum: weather.daily.showersSum[day],
                 snowfallSum: weather.daily.snowfallSum[day],
@@ -205,6 +196,13 @@ enum Transformer {
 
         return allRowData
     }
+}
+
+enum WeatherBackround: String {
+    case sunny = "sunny"
+    case cloudy = "cloudy"
+    case rainy = "rainy"
+    case snowy = "snowy"
 }
 
 

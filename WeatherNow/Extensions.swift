@@ -29,3 +29,22 @@ struct RoundedCorner: Shape {
         return Path(path.cgPath)
     }
 }
+
+extension DateFormatter {
+    static func convertToDate(_ date: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
+        return dateFormatter.date(from: date) ?? Date()
+    }
+    
+    static func convertToShortDate(_ date: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.date(from: date) ?? Date()
+    }
+    
+    static func getWeekDay(_ date: Date) -> String {
+        let f = DateFormatter()
+        return f.weekdaySymbols[Calendar.current.component(.weekday, from: date) - 1]
+    }
+}

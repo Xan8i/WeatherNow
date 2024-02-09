@@ -56,12 +56,9 @@ struct WeekdayWeatherView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.ultraThinMaterial.opacity(0.5))
             .cornerRadius(20)
-            
-            
-            
         }
         .padding()
-        .background(Image(weather.weatherBackround.rawValue))
+        .background(Image(rowData.weatherBackround.rawValue))
         .preferredColorScheme(.dark)
     }
 }

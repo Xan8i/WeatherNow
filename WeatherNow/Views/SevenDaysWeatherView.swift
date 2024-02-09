@@ -26,7 +26,7 @@ struct SevenDaysWeatherView: View {
         .preferredColorScheme(.dark)
         .navigationTitle("7 Day Forecast ")
         .navigationBarTitleDisplayMode(.large)
-        .background(Image(weather.weatherBackround.rawValue))
+        .background(Image("sunny"))
     }
 }
 
