@@ -25,8 +25,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         isLoading = true
         manager.requestWhenInUseAuthorization()
     }
-    
-    
+
+
     // MARK: CLLocationManagerDelegate methods
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
