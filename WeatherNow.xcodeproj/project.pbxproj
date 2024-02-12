@@ -32,6 +32,10 @@
 		C3E0E0B72B768529003B7FCE /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E0E0B62B768529003B7FCE /* ExtensionsTests.swift */; };
 		C3E0E0B92B768B1B003B7FCE /* weatherData.json in Resources */ = {isa = PBXBuildFile; fileRef = C3E0E0B82B768B1B003B7FCE /* weatherData.json */; };
 		C3E0E0BB2B768B91003B7FCE /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E0E0BA2B768B91003B7FCE /* Decoder.swift */; };
+		C3E0E0DB2B7A2C7A003B7FCE /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E0E0DA2B7A2C7A003B7FCE /* ContentViewModel.swift */; };
+		C3E0E0DD2B7A7B93003B7FCE /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E0E0DC2B7A7B93003B7FCE /* WeatherViewModel.swift */; };
+		C3E0E0DF2B7A824D003B7FCE /* SevenDaysWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E0E0DE2B7A824D003B7FCE /* SevenDaysWeatherViewModel.swift */; };
+		C3E0E0E12B7A854C003B7FCE /* WeekdayWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E0E0E02B7A854C003B7FCE /* WeekdayWeatherViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,10 @@
 		C3E0E0B62B768529003B7FCE /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
 		C3E0E0B82B768B1B003B7FCE /* weatherData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weatherData.json; sourceTree = "<group>"; };
 		C3E0E0BA2B768B91003B7FCE /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		C3E0E0DA2B7A2C7A003B7FCE /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		C3E0E0DC2B7A7B93003B7FCE /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		C3E0E0DE2B7A824D003B7FCE /* SevenDaysWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SevenDaysWeatherViewModel.swift; sourceTree = "<group>"; };
+		C3E0E0E02B7A854C003B7FCE /* WeekdayWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayWeatherViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +175,10 @@
 				C39453722B276A4500EA182F /* SevenDaysWeatherView.swift */,
 				C3D0226C2B547E760077297D /* WeekdayWeatherView.swift */,
 				C39E71CE2B1607F100E7D3B4 /* LoadingView.swift */,
+				C3E0E0DA2B7A2C7A003B7FCE /* ContentViewModel.swift */,
+				C3E0E0DC2B7A7B93003B7FCE /* WeatherViewModel.swift */,
+				C3E0E0DE2B7A824D003B7FCE /* SevenDaysWeatherViewModel.swift */,
+				C3E0E0E02B7A854C003B7FCE /* WeekdayWeatherViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C39453702B17D61C00EA182F /* WeatherRow.swift in Sources */,
+				C3E0E0E12B7A854C003B7FCE /* WeekdayWeatherViewModel.swift in Sources */,
 				C39E71D12B1608AC00E7D3B4 /* WeatherManager.swift in Sources */,
 				C39453732B276A4500EA182F /* SevenDaysWeatherView.swift in Sources */,
 				C39E71D92B177A1200E7D3B4 /* Extensions.swift in Sources */,
@@ -299,6 +312,9 @@
 				C39E71CA2B15F7E700E7D3B4 /* LocationManager.swift in Sources */,
 				C39E71CF2B1607F100E7D3B4 /* LoadingView.swift in Sources */,
 				C39E71D52B1776C200E7D3B4 /* ModelData.swift in Sources */,
+				C3E0E0DB2B7A2C7A003B7FCE /* ContentViewModel.swift in Sources */,
+				C3E0E0DD2B7A7B93003B7FCE /* WeatherViewModel.swift in Sources */,
+				C3E0E0DF2B7A824D003B7FCE /* SevenDaysWeatherViewModel.swift in Sources */,
 				C39E71D32B17766200E7D3B4 /* WeatherView.swift in Sources */,
 				C39453752B276AB600EA182F /* DailyWeatherRowView.swift in Sources */,
 				C32D6C502B2A1AED005E4940 /* ConditionsView.swift in Sources */,
