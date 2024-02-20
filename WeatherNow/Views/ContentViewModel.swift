@@ -14,7 +14,7 @@ final class ContentViewModel: ObservableObject {
     @Published var weather: ResponseBody?
     @Published var isCelsius = true
     @Published var isRefreshing = false
-    
+
     func getWeather(location: CLLocationCoordinate2D) async {
         try? await Task.sleep(nanoseconds: 1_000_000_000)
         do {

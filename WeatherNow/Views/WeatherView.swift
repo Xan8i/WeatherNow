@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct WeatherView: View {
-    @ObservedObject var viewModel: WeatherViewModel
+    var weather: ResponseBody
+    var cityName: String
     
     @EnvironmentObject var router: Router
    
@@ -17,35 +18,35 @@ struct WeatherView: View {
         VStack {
             HStack {
                 VStack(alignment: .center) {
-                    Text(viewModel.cityName)
+                    Text(cityName)
                         .font(.title.bold())
-                    Text("Today, \(viewModel.weather.date.formatted(.dateTime.month().day()))")
+                    Text("Today, \(weather.date.formatted(.dateTime.month().day()))")
                         .fontWeight(.light)
                 }
                 .padding()
             }
             
-            TemperaturesWeatherView(imageName: viewModel.weather.weatherImageName,
-                                    temperature: viewModel.weather.current.temperature2M,
-                                    apparentTemperature: viewModel.weather.current.apparentTemperature,
-                                    minTemperature: viewModel.weather.daily.temperature2MMin[0],
-                                    maxTemperature: viewModel.weather.daily.temperature2MMax[0],
-                                    units: viewModel.weather.currentUnits.apparentTemperature)
+            TemperaturesWeatherView(imageName: weather.weatherImageName,
+                                    temperature: weather.current.temperature2M,
+                                    apparentTemperature: weather.current.apparentTemperature,
+                                    minTemperature: weather.daily.temperature2MMin[0],
+                                    maxTemperature: weather.daily.temperature2MMax[0],
+                                    units: weather.currentUnits.apparentTemperature)
 
             
-            ConditionsView(maxTemperature: viewModel.weather.daily.temperature2MMax[0],
-                           maxTemperatureUnits: viewModel.weather.dailyUnits.temperature2MMax,
-                           minTemperature: viewModel.weather.daily.temperature2MMin[0],
-                           minTemperatureUnits: viewModel.weather.dailyUnits.temperature2MMin,
-                           windSpeed: viewModel.weather.current.windSpeed10M,
-                           windSpeedUnits: viewModel.weather.currentUnits.windSpeed10M,
-                           humidity: viewModel.weather.current.relativeHumidity2M,
-                           humidityUnits: viewModel.weather.currentUnits.relativeHumidity2M,
-                           apparentTemperature: viewModel.weather.current.apparentTemperature)
+            ConditionsView(maxTemperature: weather.daily.temperature2MMax[0],
+                           maxTemperatureUnits: weather.dailyUnits.temperature2MMax,
+                           minTemperature: weather.daily.temperature2MMin[0],
+                           minTemperatureUnits: weather.dailyUnits.temperature2MMin,
+                           windSpeed: weather.current.windSpeed10M,
+                           windSpeedUnits: weather.currentUnits.windSpeed10M,
+                           humidity: weather.current.relativeHumidity2M,
+                           humidityUnits: weather.currentUnits.relativeHumidity2M,
+                           apparentTemperature: weather.current.apparentTemperature)
         
             
             Button {
-                router.navigateTo(destination: .sevenDaysWeather(weather: viewModel.weather, allRowData: Transformer.transformToRowData(from: viewModel.weather)))
+                router.navigateTo(destination: .sevenDaysWeather(weather: weather, allRowData: Transformer.transformToRowData(from: weather)))
             } label: {
                 Text("7 day forecast")
                     .padding()
@@ -57,15 +58,14 @@ struct WeatherView: View {
             }
             .padding(.top, 30)
         }
-        .background(Image(viewModel.weather.weatherBackround.rawValue))
+        .background(Image(weather.weatherBackround.rawValue))
         .preferredColorScheme(.dark)
-        .onAppear(perform: viewModel.getCityName)
     }
 }
 
 struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherView(viewModel: WeatherViewModel(weather: previewWeather, locationManager: LocationManager()))
+        WeatherView(weather: previewWeather, cityName: "Athens")
             .environmentObject(Router())
     }
 }

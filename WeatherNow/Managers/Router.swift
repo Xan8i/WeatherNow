@@ -19,12 +19,4 @@ class Router: ObservableObject {
     func navigateTo(destination: Destination) {
         navPath.append(destination)
     }
-    
-    func navigateBack() {
-        navPath.removeLast()
-    }
-    
-    func navigateToHome() {
-        navPath = NavigationPath()
-    }
 }

@@ -9,8 +9,7 @@ import SwiftUI
 
 struct WeekdayWeatherView: View {
     @ObservedObject var viewModel: WeekdayWeatherViewModel
-    
-    
+
     var body: some View {
         //VStack(spacing: 20) {
         ScrollView {

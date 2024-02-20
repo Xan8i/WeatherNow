@@ -17,13 +17,13 @@ struct ContentView: View {
             ScrollView {
                 if let location = locationManager.location {
                     if let weather = viewModel.weather {
-                        WeatherView(viewModel: WeatherViewModel(weather: weather, locationManager: locationManager))
+                        WeatherView(weather: weather, cityName: locationManager.cityName)
                             .navigationDestination(for: Router.Destination.self) { destination in
                                 switch destination {
                                 case .sevenDaysWeather(let weather, let allRowData):
                                     SevenDaysWeatherView(viewModel: SevenDaysWeatherViewModel(weather: weather, allRowData: allRowData))
                                 case .weekdayWeather(let weather, let rowData):
-                                    WeekdayWeatherView(viewModel:WeekdayWeatherViewModel(weather: weather, rowData: rowData))
+                                    WeekdayWeatherView(viewModel: WeekdayWeatherViewModel(weather: weather, rowData: rowData))
                                 }
                             }
                             .toolbar {

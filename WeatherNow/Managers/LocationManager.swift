@@ -15,6 +15,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var location: CLLocationCoordinate2D?
     @Published var isLoading = false
     
+    @Published var cityName = ""
+    
     override init() {
         super.init()
         manager.delegate = self
@@ -26,12 +28,21 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         manager.requestWhenInUseAuthorization()
     }
 
+    
+    
+    func getCityName() {
+        lookUpCurrentLocation { placemark in
+            self.cityName = placemark?.locality ?? "City name not found"
+        }
+    }
 
     // MARK: CLLocationManagerDelegate methods
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         location = locations.first?.coordinate
         isLoading = false
+        
+        getCityName()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
