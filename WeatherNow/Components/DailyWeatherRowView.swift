@@ -13,7 +13,7 @@ struct DailyWeatherRowView: View {
    
     
     var body: some View {
-        HStack(spacing: 30) {
+        HStack(spacing: 16) {
             WeatherImageView(imageName: image, font: .title)
             
             VStack(alignment: .listRowSeparatorLeading)  {
@@ -27,8 +27,11 @@ struct DailyWeatherRowView: View {
             
             Text(rowData.temperature2MMax.roundDouble() + "°/ " + rowData.temperature2MMin.roundDouble() + "°")
                 .font(.title2.bold())
+            
+            Image(systemName: "chevron.right")
+                .frame(width: 36, height: 36)
         }
-        .padding()
+        .padding(.top, 16)
         .foregroundStyle(.white)
         .preferredColorScheme(.dark)
     }

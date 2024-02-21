@@ -13,7 +13,7 @@ struct SevenDaysWeatherView: View {
     @EnvironmentObject var router: Router
     
     var body: some View {
-        ScrollView {
+        List {
             ForEach(viewModel.allRowData, id: \.time) { rowData in
                 Button {
                     router.navigateTo(destination: .weekdayWeather(weather: viewModel.weather, rowData: rowData))
@@ -21,11 +21,15 @@ struct SevenDaysWeatherView: View {
                     DailyWeatherRowView(rowData: rowData, image: rowData.weatherImageName)
                 }
             }
+            .listRowBackground(EmptyView())
+            .listRowSeparator(.hidden)
         }
+        .listStyle(.plain)
+        .scrollContentBackground(.hidden)
+        .background(Image("sunny"))
         .preferredColorScheme(.dark)
         .navigationTitle("7 Day Forecast ")
         .navigationBarTitleDisplayMode(.large)
-        .background(Image("sunny"))
     }
 }
 
