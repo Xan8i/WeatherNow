@@ -36,6 +36,7 @@
 		C3E0E0DD2B7A7B93003B7FCE /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E0E0DC2B7A7B93003B7FCE /* WeatherViewModel.swift */; };
 		C3E0E0DF2B7A824D003B7FCE /* SevenDaysWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E0E0DE2B7A824D003B7FCE /* SevenDaysWeatherViewModel.swift */; };
 		C3E0E0E12B7A854C003B7FCE /* WeekdayWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E0E0E02B7A854C003B7FCE /* WeekdayWeatherViewModel.swift */; };
+		C3FE88392BEA9F1200CFD280 /* RequestLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FE88382BEA9F1200CFD280 /* RequestLocationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		C3E0E0DC2B7A7B93003B7FCE /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		C3E0E0DE2B7A824D003B7FCE /* SevenDaysWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SevenDaysWeatherViewModel.swift; sourceTree = "<group>"; };
 		C3E0E0E02B7A854C003B7FCE /* WeekdayWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayWeatherViewModel.swift; sourceTree = "<group>"; };
+		C3FE88382BEA9F1200CFD280 /* RequestLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLocationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				C39453722B276A4500EA182F /* SevenDaysWeatherView.swift */,
 				C3D0226C2B547E760077297D /* WeekdayWeatherView.swift */,
 				C39E71CE2B1607F100E7D3B4 /* LoadingView.swift */,
+				C3FE88382BEA9F1200CFD280 /* RequestLocationView.swift */,
 				C3E0E0DA2B7A2C7A003B7FCE /* ContentViewModel.swift */,
 				C3E0E0DC2B7A7B93003B7FCE /* WeatherViewModel.swift */,
 				C3E0E0DE2B7A824D003B7FCE /* SevenDaysWeatherViewModel.swift */,
@@ -306,6 +309,7 @@
 				C32D6C4E2B2A1647005E4940 /* TemperaturesWeatherView.swift in Sources */,
 				C3D0226D2B547E760077297D /* WeekdayWeatherView.swift in Sources */,
 				C39E71BD2B15F6C800E7D3B4 /* ContentView.swift in Sources */,
+				C3FE88392BEA9F1200CFD280 /* RequestLocationView.swift in Sources */,
 				C32D6C4A2B2A1193005E4940 /* WeatherImageView.swift in Sources */,
 				C39E71BB2B15F6C800E7D3B4 /* WeatherNowApp.swift in Sources */,
 				C394536D2B17979100EA182F /* WeatherModel.swift in Sources */,
@@ -477,6 +481,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -508,6 +513,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

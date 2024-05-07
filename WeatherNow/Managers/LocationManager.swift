@@ -20,15 +20,11 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     override init() {
         super.init()
         manager.delegate = self
-        manager.startUpdatingLocation()
-    }
-    
-    func requestLocation() {
-        isLoading = true
+        manager.requestLocation()
         manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
+        isLoading = true
     }
-
-    
     
     func getCityName() {
         lookUpCurrentLocation { placemark in

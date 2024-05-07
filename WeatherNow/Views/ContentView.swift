@@ -42,7 +42,7 @@ struct ContentView: View {
                             }
                     }
                 } else {
-                    LoadingView()
+                    RequestLocationView()
                 }
             }
             .overlay(alignment: .top) {
